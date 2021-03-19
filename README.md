@@ -157,7 +157,7 @@ final gradient = LinearGradientPainter(
     colors: colors, colorSpace: ColorSpace.oklab);
 ```
 
-![Oklab Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/color_spaces/img/oklab.png "Oklab Gradient")
+![Oklab Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/img/color_spaces/oklab.png "Oklab Gradient")
 
 ### RGB
 
