@@ -20,7 +20,7 @@ The 3 classes in `gradients` can be used interchangeably with Flutter's
 [SweepGradientPainter].
 
 ```dart
-final colors = <Color>[Colors.lime, Colors.pink, Colors.purple];
+final colors = <Color>[Colors.lime, Colors.pink, Colors.cyan];
 final linearGradient = LinearGradientPainter(colors: colors);
 final radialGradient = RadialGradientPainter(colors: colors);
 final sweepGradient = SweepGradientPainter(colors: colors);
@@ -33,7 +33,7 @@ or the [createShader] method can be used to paint directly to a [Canvas].
 final widget = Container(
   decoration: BoxDecoration(
     gradient: LinearGradientPainter(
-      colors: <Color>[Colors.lime, Colors.pink, Colors.purple],
+      colors: <Color>[Colors.lime, Colors.pink, Colors.cyan],
     ),
   ),
 );
@@ -45,7 +45,7 @@ By default, [Color]s are interpolated in the RGB color space; A [colorSpace]
 can be provided to set the color space colors will be interpolated in.
 
 ```dart
-final colors = <Color>[Colors.lime, Colors.pink, Colors.purple];
+final colors = <Color>[Colors.lime, Colors.pink, Colors.cyan];
 final oklabGradient = LinearGradientPainter(
   colorSpace: ColorSpace.oklab,
   colors: colors,
@@ -93,7 +93,7 @@ Below is the same set of colors interpolated in each of the supported
 color spaces.
 
 ```dart
-final colors = <Color>[Colors.lime, Colors.pink, Colors.purple];
+final colors = <Color>[Colors.lime, Colors.pink, Colors.cyan];
 ```
 
 ### CMYK
@@ -104,6 +104,15 @@ final gradient = LinearGradientPainter(
 ```
 
 ![CMYK Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/img/color_spaces/cmyk.png "CMYK Gradient")
+
+### HSB
+
+```dart
+final gradient = LinearGradientPainter(
+    colors: colors, colorSpace: ColorSpace.hsb);
+```
+
+![HSB Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/img/color_spaces/hsb.png "HSB Gradient")
 
 ### HSI
 
@@ -131,15 +140,6 @@ final gradient = LinearGradientPainter(
 ```
 
 ![HSP Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/img/color_spaces/hsp.png "HSP Gradient")
-
-### HSB
-
-```dart
-final gradient = LinearGradientPainter(
-    colors: colors, colorSpace: ColorSpace.hsb);
-```
-
-![HSB Gradient](https://raw.githubusercontent.com/james-alex/gradients/master/img/color_spaces/hsb.png "HSB Gradient")
 
 ### LAB
 
