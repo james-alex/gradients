@@ -3,7 +3,7 @@ description: >-
   Implementations of Flutter's linear, radial, and sweep gradients
   with support for the CMYK, HSI, HSL, HSP, HSB, LAB, Oklab, RGB,
   and XYZ color spaces.
-version: 0.1.0+1
+version: 0.1.1
 homepage: https://github.com/james-alex/gradients
 
 environment:
@@ -13,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_color_models: ^1.2.0
+  flutter_color_models: ^1.2.1
   powers: ^1.0.0+2
 
 dev_dependencies:
