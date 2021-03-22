@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'dart:typed_data';
-import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_color_models/flutter_color_models.dart';
@@ -120,8 +120,8 @@ class LinearGradientPainter extends LinearGradient implements GradientPainter {
     return other is LinearGradientPainter &&
         begin == other.begin &&
         end == other.end &&
-        colors.equals(other.colors) &&
-        stops?.equals(other.stops ?? []) == true &&
+        listEquals<Color>(colors, other.colors) &&
+        listEquals<double>(stops, other.stops) &&
         tileMode == other.tileMode &&
         transform == other.transform &&
         colorSpace == other.colorSpace &&
@@ -220,8 +220,8 @@ class RadialGradientPainter extends RadialGradient implements GradientPainter {
     return other is RadialGradientPainter &&
         center == other.center &&
         radius == other.radius &&
-        colors.equals(other.colors) &&
-        stops?.equals(other.stops ?? []) == true &&
+        listEquals<Color>(colors, other.colors) &&
+        listEquals<double>(stops, other.stops) &&
         tileMode == other.tileMode &&
         focal == other.focal &&
         focalRadius == other.focalRadius &&
@@ -333,8 +333,8 @@ class SweepGradientPainter extends SweepGradient implements GradientPainter {
         center == other.center &&
         startAngle == other.startAngle &&
         endAngle == other.endAngle &&
-        colors.equals(other.colors) &&
-        stops?.equals(other.stops ?? []) == true &&
+        listEquals<Color>(colors, other.colors) &&
+        listEquals<double>(stops, other.stops) &&
         tileMode == other.tileMode &&
         transform == other.transform &&
         colorSpace == other.colorSpace &&
