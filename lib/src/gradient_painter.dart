@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'dart:typed_data';
+import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_color_models/flutter_color_models.dart';
@@ -111,6 +112,26 @@ class LinearGradientPainter extends LinearGradient implements GradientPainter {
       density: density,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    return other is LinearGradientPainter &&
+        begin == other.begin &&
+        end == other.end &&
+        colors.equals(other.colors) &&
+        stops?.equals(other.stops ?? []) == true &&
+        tileMode == other.tileMode &&
+        transform == other.transform &&
+        colorSpace == other.colorSpace &&
+        invert == other.invert &&
+        density == other.density;
+  }
+
+  @override
+  int get hashCode => hashValues(begin, end, hashList(colors), hashList(stops),
+      tileMode, transform, colorSpace, invert, density);
 }
 
 /// A 2D radial gradient.
@@ -191,6 +212,38 @@ class RadialGradientPainter extends RadialGradient implements GradientPainter {
       density: density,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    return other is RadialGradientPainter &&
+        center == other.center &&
+        radius == other.radius &&
+        colors.equals(other.colors) &&
+        stops?.equals(other.stops ?? []) == true &&
+        tileMode == other.tileMode &&
+        focal == other.focal &&
+        focalRadius == other.focalRadius &&
+        transform == other.transform &&
+        colorSpace == other.colorSpace &&
+        invert == other.invert &&
+        density == other.density;
+  }
+
+  @override
+  int get hashCode => hashValues(
+      center,
+      radius,
+      hashList(colors),
+      hashList(stops),
+      tileMode,
+      focal,
+      focalRadius,
+      transform,
+      colorSpace,
+      invert,
+      density);
 }
 
 /// A 2D sweep gradient.
@@ -271,6 +324,27 @@ class SweepGradientPainter extends SweepGradient implements GradientPainter {
       density: density,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    return other is SweepGradientPainter &&
+        center == other.center &&
+        startAngle == other.startAngle &&
+        endAngle == other.endAngle &&
+        colors.equals(other.colors) &&
+        stops?.equals(other.stops ?? []) == true &&
+        tileMode == other.tileMode &&
+        transform == other.transform &&
+        colorSpace == other.colorSpace &&
+        invert == other.invert &&
+        density == other.density;
+  }
+
+  @override
+  int get hashCode => hashValues(center, startAngle, endAngle, hashList(colors),
+      hashList(stops), tileMode, transform, colorSpace, invert, density);
 }
 
 extension _BuildStops on GradientPainter {
