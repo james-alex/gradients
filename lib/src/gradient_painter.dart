@@ -1,8 +1,8 @@
 import 'dart:math' as math;
-import 'dart:ui' as ui;
 import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:flutter/foundation.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_color_models/flutter_color_models.dart';
 import 'package:powers/powers.dart';
@@ -362,5 +362,5 @@ extension _BuildStops on GradientPainter {
   /// Returns the number of device pixels for each logical
   /// pixel for the screen this view is displayed on.
   double get devicePixelRatio =>
-      WidgetsBinding.instance!.window.devicePixelRatio;
+      WidgetsBinding.instance.window.devicePixelRatio;
 }
